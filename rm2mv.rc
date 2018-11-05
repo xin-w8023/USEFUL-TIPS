@@ -17,7 +17,7 @@ trash()
 rclear()
 {
 	read -p "Are You Sure To Clear Trash???" confirm
-	[ $confirm == 'y' ] || [ $confirm == 'Y' ] && /bin/rm/ -fr ~/.trash/*
+	[ $confirm == 'y' ] || [ $confirm == 'Y' ] && /bin/rm -fr ~/.trash/*
 }
 undelfile()
 {
