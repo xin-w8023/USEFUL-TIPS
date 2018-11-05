@@ -1,0 +1,28 @@
+#######################################################################
+#alias rm to mv, if rm called, then the file will be moved to ~/.trash#
+#######################################################################
+if [ ! -d ~/.trash ]; then
+	mkdir -p ~/.trash;
+fi
+alias rm=trash
+alias r=trash
+alias rl='ls ~/.trash'
+alias rll='ll ~./trash'
+alias rc=rclear
+alias ur=undelfile
+trash()
+{
+	mv $@ ~/.trash/
+}
+rclear()
+{
+	read -p "Are You Sure To Clear Trash???" confirm
+	[ $confirm == 'y' ] || [ $confirm == 'Y' ] && /bin/rm/ -fr ~/.trash/*
+}
+undelfile()
+{
+	mv -i ~/.trash/$@ ./
+}
+#######################################################################
+#####                        alias done!                          #####
+#######################################################################
